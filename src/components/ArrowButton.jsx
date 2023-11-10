@@ -1,13 +1,15 @@
 import React, { useContext, useEffect } from "react";
-import { AgeContext } from "../store/AgeContext";
 
 // icons
 import iconArrow from "../assets/images/icon-arrow.svg";
 import iconSuccess from "../assets/images/icon-success.svg";
 import iconError from "../assets/images/icon-error.svg";
+import { ErrorStatesContext } from "../store/ErrorStatesContext";
 
 function ArrowButton({ ...props }) {
-  const { isSuccess } = useContext(AgeContext);
+  const { isSuccess } = useContext(ErrorStatesContext);
+
+  console.log(isSuccess);
 
   function handleSuccess() {
     const buttonIcon = isSuccess ? iconSuccess : iconError;

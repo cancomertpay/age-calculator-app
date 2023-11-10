@@ -2,9 +2,11 @@ import React, { useContext, useState } from "react";
 import Input from "./Input";
 import { AgeContext } from "../store/AgeContext";
 import ArrowButton from "./ArrowButton";
+import { ErrorStatesContext } from "../store/ErrorStatesContext";
 
 function Form() {
   const ageCtx = useContext(AgeContext);
+  const errorCtx = useContext(ErrorStatesContext);
 
   const [userBirth, setUserBirth] = useState({
     day: "",
@@ -34,43 +36,43 @@ function Form() {
       [inputName]: newValue,
     }));
 
-    ageCtx.clearError(inputName);
+    errorCtx.clearError(inputName);
   }
 
   function handleBlur(id) {
     // Error handlers
     if (id === "day") {
-      ageCtx.dayErrorHandler(userBirth.day);
+      errorCtx.dayErrorHandler(userBirth.day);
     }
     if (id === "month") {
-      ageCtx.monthErrorHandler(userBirth.month);
+      errorCtx.monthErrorHandler(userBirth.month);
     }
     if (id === "year") {
-      ageCtx.yearErrorHandler(userBirth.year);
+      errorCtx.yearErrorHandler(userBirth.year);
     }
   }
 
   function handleSubmit(day, month, year) {
     // Error handlers will also work on the submit event.
     if (day === "day") {
-      ageCtx.dayErrorHandler(userBirth.day);
+      errorCtx.dayErrorHandler(userBirth.day);
     }
     if (month === "month") {
-      ageCtx.monthErrorHandler(userBirth.month);
+      errorCtx.monthErrorHandler(userBirth.month);
     }
     if (year === "year") {
-      ageCtx.yearErrorHandler(userBirth.year);
+      errorCtx.yearErrorHandler(userBirth.year);
     }
 
     // on submit
     if (
-      ageCtx.hasError.dayError ||
-      ageCtx.hasError.monthError ||
-      ageCtx.hasError.yearError
+      errorCtx.hasError.dayError ||
+      errorCtx.hasError.monthError ||
+      errorCtx.hasError.yearError
     ) {
       return;
     } else {
-      ageCtx.clearSucces()
+      errorCtx.clearSucces();
       ageCtx.handleUserBirth(userBirth);
     }
   }
@@ -90,7 +92,7 @@ function Form() {
             id={item}
             onChange={() => handleChange(item, event)}
             onBlur={() => handleBlur(item)}
-            hasError={ageCtx.hasError}
+            hasError={errorCtx.hasError}
             value={userBirth[item]}
             placeholder={inputPlaceholder[item]}
           />
