@@ -173,12 +173,12 @@ header {
     padding: 4rem;
     background-color: hsl(0, 0%, 94%);
   }
-  
+
   .form {
     display: flex;
     align-items: left;
-    justify-content:start;
-  
+    justify-content: start;
+
     margin: 1rem 0 2rem 0;
   }
 
@@ -187,17 +187,17 @@ header {
     flex-direction: column;
     margin: 0 1.5rem 1rem 0;
   }
-  
+
   .input-group {
     display: flex;
     flex-direction: column;
   }
-  
+
   .input-label {
     color: hsl(0, 1%, 44%);
     font-size: 14px;
   }
-  
+
   .input {
     border: 1px solid hsl(0, 1%, 44%);
     padding: 20px;
@@ -220,17 +220,17 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-  
+
     width: 90px;
     height: 90px;
-  
+
     border-radius: 50%;
     background-color: hsl(259, 100%, 65%);
-  
+
     position: absolute;
     left: 81%;
     top: 180px;
-  
+
     cursor: pointer;
   }
 
@@ -241,7 +241,7 @@ header {
   .button-error {
     background-color: hsl(0, 100%, 67%);
   }
-  
+
   .button-success {
     background-color: #90ee90;
   }
@@ -251,8 +251,9 @@ header {
   }
 
   .error-input {
-  border: 2px solid hsl(0, 100%, 67%);;
-}
+    border: 2px solid hsl(0, 100%, 67%);
+    ;
+  }
 
   .age-calculator {
     display: flex;
