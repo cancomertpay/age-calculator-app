@@ -8,7 +8,7 @@ function ArrowButton({ ...props }) {
 
   return (
     <div className={`arrow-button`} {...props}>
-      <img src={isSuccess ? iconSuccess : iconArrow} width={"65px"} alt="arrow-icon" />
+      <img src={isSuccess ? iconSuccess : iconArrow} alt="arrow-icon" />
     </div>
   );
 }
