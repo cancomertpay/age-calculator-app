@@ -151,7 +151,7 @@ body {
 @media (min-width: 1400px) {
   .card {
     width: 680px;
-    height: 450px;
+    height: 550px;
     border-radius: 20px;
     border-bottom-right-radius: 25%;
     padding: 4rem;
