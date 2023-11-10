@@ -12,8 +12,8 @@ export const AgeContext = createContext({
   monthErrorHandler: (month) => {},
   yearErrorHandler: (year) => {},
   clearError: () => {},
-  toggleSuccess: (boolean) => {},
-  isSuccess: false
+  toggleSuccess: () => {},
+  isSuccess: null
 });
 
 export default function AgeContextProvider({ children }) {
@@ -32,8 +32,14 @@ export default function AgeContextProvider({ children }) {
   const [isSuccess, setIsSuccess] = useState(null)
 
   // handler functions
-  function toggleSuccess(boolean) {
-    setIsSuccess(boolean)
+  function toggleSuccess() {
+    if(error === false) {
+      setIsSuccess(null)
+    } else if(error.dayError || error.monthError || error.yearError) {
+      setIsSuccess(false)
+    } else {
+      setIsSuccess(true)
+    }
   }
 
   function dayErrorHandler(day) {
@@ -175,6 +181,10 @@ export default function AgeContextProvider({ children }) {
   useEffect(() => {
     CalculateAge();
   }, [userBirth]);
+
+  useEffect(() => {
+    toggleSuccess()
+  }, [error])
 
   const contextValues = {
     userAge,

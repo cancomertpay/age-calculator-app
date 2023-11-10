@@ -12,8 +12,6 @@ function Form() {
     year: "",
   });
 
-  const [onSuccess, setOnSuccess] = useState(false);
-
   function handleChange(inputName, event) {
     let newValue = event.target.value;
 
@@ -73,8 +71,6 @@ function Form() {
       return;
     } else {
       ageCtx.handleUserBirth(userBirth);
-      setOnSuccess(true);
-      ageCtx.toggleSuccess(onSuccess)
     }
   }
 
