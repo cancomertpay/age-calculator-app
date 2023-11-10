@@ -150,8 +150,8 @@ body {
 /* LG-DEVICES */
 @media (min-width: 1400px) {
   .card {
-    width: 650px;
-    height: 400px;
+    width: 680px;
+    height: 450px;
     border-radius: 20px;
     border-bottom-right-radius: 25%;
     padding: 4rem;
