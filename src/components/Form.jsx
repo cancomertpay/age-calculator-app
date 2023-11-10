@@ -4,15 +4,17 @@ import { AgeContext } from "../store/AgeContext";
 import ArrowButton from "./ArrowButton";
 import { ErrorStatesContext } from "../store/ErrorStatesContext";
 
+const initialBirthVal = {
+  day: "",
+  month: "",
+  year: "",
+};
+
 function Form() {
   const ageCtx = useContext(AgeContext);
   const errorCtx = useContext(ErrorStatesContext);
 
-  const [userBirth, setUserBirth] = useState({
-    day: "",
-    month: "",
-    year: "",
-  });
+  const [userBirth, setUserBirth] = useState(initialBirthVal);
 
   function handleChange(inputName, event) {
     let newValue = event.target.value;
@@ -74,6 +76,7 @@ function Form() {
     } else {
       errorCtx.clearSucces();
       ageCtx.handleUserBirth(userBirth);
+      setUserBirth(initialBirthVal);
     }
   }
 
