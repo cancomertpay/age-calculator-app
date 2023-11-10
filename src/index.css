@@ -130,6 +130,10 @@ header {
   cursor: pointer;
 }
 
+.button img {
+  width: 75px;
+}
+
 .button-error {
   background-color: hsl(0, 100%, 67%);
 }
@@ -138,8 +142,7 @@ header {
   background-color: #90ee90;
 }
 
-
-.arrow-button:hover {
+.button:hover {
   background-color: hsl(0, 0%, 8%);
 }
 
@@ -213,7 +216,7 @@ header {
     font-family: Poppins-Italic;
   }
 
-  .arrow-button {
+  .button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -231,8 +234,16 @@ header {
     cursor: pointer;
   }
 
-  .arrow-button img {
+  .button img {
     width: 50px;
+  }
+
+  .button-error {
+    background-color: hsl(0, 100%, 67%);
+  }
+  
+  .button-success {
+    background-color: #90ee90;
   }
 
   .error {
