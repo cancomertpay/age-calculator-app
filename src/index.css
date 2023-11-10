@@ -35,6 +35,10 @@ body {
   font-family: Poppins-Regular;
 }
 
+header {
+  visibility: hidden;
+}
+
 #root {
   position: absolute;
   top: 50%;
@@ -105,10 +109,10 @@ body {
 }
 
 .error-input {
-  border: 2px solid hsl(0, 100%, 67%);;
+  border: 2px solid hsl(0, 100%, 67%);
 }
 
-.arrow-button {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,6 +129,15 @@ body {
 
   cursor: pointer;
 }
+
+.button-error {
+  background-color: hsl(0, 100%, 67%);
+}
+
+.button-success {
+  background-color: #90ee90;
+}
+
 
 .arrow-button:hover {
   background-color: hsl(0, 0%, 8%);
@@ -148,10 +161,10 @@ body {
 
 
 /* LG-DEVICES */
-@media (min-width: 1400px) {
+@media (min-width: 1000px) {
   .card {
-    width: 680px;
-    height: 550px;
+    width: 650px;
+    height: 400px;
     border-radius: 20px;
     border-bottom-right-radius: 25%;
     padding: 4rem;

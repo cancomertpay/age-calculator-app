@@ -29,7 +29,7 @@ export default function AgeContextProvider({ children }) {
     year: "",
   });
   const [error, setError] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false)
+  const [isSuccess, setIsSuccess] = useState(null)
 
   // handler functions
   function toggleSuccess(boolean) {

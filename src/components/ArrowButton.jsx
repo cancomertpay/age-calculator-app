@@ -1,14 +1,36 @@
-import React, { useContext } from "react";
-import iconArrow from "../assets/images/icon-arrow.svg";
+import React, { useContext, useEffect } from "react";
 import { AgeContext } from "../store/AgeContext";
+
+// icons
+import iconArrow from "../assets/images/icon-arrow.svg";
 import iconSuccess from "../assets/images/icon-success.svg";
+import iconError from "../assets/images/icon-error.svg";
 
 function ArrowButton({ ...props }) {
   const { isSuccess } = useContext(AgeContext);
 
+  console.log(isSuccess);
+  function handleSuccess() {
+    const buttonIcon = isSuccess ? iconSuccess : iconError;
+    return buttonIcon;
+  }
+
+  useEffect(() => {
+    handleSuccess();
+  }, [isSuccess]);
+
   return (
-    <div className={`arrow-button`} {...props}>
-      <img src={isSuccess ? iconSuccess : iconArrow} alt="arrow-icon" />
+    <div
+      className={`button 
+      ${isSuccess !== null && !isSuccess ? "button-error" : ""} 
+      ${isSuccess !== null && isSuccess ? "button-success" : ""}
+      `}
+      {...props}
+    >
+      <img
+        src={isSuccess === null ? iconArrow : handleSuccess()}
+        alt="arrow-icon"
+      />
     </div>
   );
 }
