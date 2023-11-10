@@ -1,0 +1,246 @@
+/* FONTS */
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(./assets/fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-BoldItalic;
+  src: url(./assets/fonts/Poppins-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: Poppins-ExtraBold;
+  src: url(./assets/fonts/Poppins-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Poppins-ExtraBoldItalic;
+  src: url(./assets/fonts/Poppins-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Italic;
+  src: url(./assets/fonts/Poppins-Italic.ttf);
+}
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(./assets/fonts/Poppins-Regular.ttf);
+}
+
+body {
+  background-color: hsl(0, 0%, 86%);
+  min-height: 100vh;
+  font-family: Poppins-Regular;
+}
+
+#root {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  width: 750px;
+  height: 1100px;
+  border-radius: 50px;
+  border-bottom-right-radius: 25%;
+  padding: 2rem 1.5rem;
+  background-color: hsl(0, 0%, 94%);
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  margin: 4rem 0 10rem 0;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  color: hsl(0, 1%, 44%);
+  font-size: 34px;
+  letter-spacing: 5px;
+  font-family: Poppins-Bold;
+  margin-bottom: 5px;
+}
+
+.input {
+  border: 1px solid hsl(0, 1%, 44%);
+  padding: 2rem;
+  width: 165px;
+  font-size: 50px;
+  font-family: Poppins-Bold;
+  border-radius: 15px;
+  color: hsl(0, 0%, 8%);
+  background-color: transparent;
+}
+
+.input:focus {
+  outline: none;
+  border: 2px solid hsl(259, 100%, 65%);
+}
+
+.error {
+  color: hsl(0, 100%, 67%);
+}
+
+.error-msg {
+  position: absolute;
+  top: 290px;
+  font-size: 20px;
+  font-family: Poppins-Italic;
+}
+
+.error-input {
+  border: 2px solid hsl(0, 100%, 67%);;
+}
+
+.arrow-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+  background-color: hsl(259, 100%, 65%);
+
+  position: absolute;
+  left: 43%;
+  top: 380px;
+
+  cursor: pointer;
+}
+
+.arrow-button:hover {
+  background-color: hsl(0, 0%, 8%);
+}
+
+.age-calculator {
+  margin-top: 6rem;
+  padding: 2rem;
+  font-family: Poppins-BoldItalic;
+  font-size: 8.5em;
+  color: hsl(0, 0%, 8%);
+}
+
+.age-results {
+  margin-bottom: -4rem;
+}
+
+.age-calculator span {
+  color: hsl(259, 100%, 65%);
+}
+
+
+/* LG-DEVICES */
+@media (min-width: 1400px) {
+  .card {
+    width: 650px;
+    height: 400px;
+    border-radius: 20px;
+    border-bottom-right-radius: 25%;
+    padding: 4rem;
+    background-color: hsl(0, 0%, 94%);
+  }
+  
+  .form {
+    display: flex;
+    align-items: left;
+    justify-content:start;
+  
+    margin: 1rem 0 2rem 0;
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1.5rem 1rem 0;
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-label {
+    color: hsl(0, 1%, 44%);
+    font-size: 14px;
+  }
+  
+  .input {
+    border: 1px solid hsl(0, 1%, 44%);
+    padding: 20px;
+    width: 100px;
+    height: 30px;
+    font-size: 30px;
+    font-family: Poppins-Bold;
+    border-radius: 9px;
+  }
+
+  .error-msg {
+    position: absolute;
+    top: 175px;
+    font-size: 10px;
+    margin-left: 0.4rem;
+    font-family: Poppins-Italic;
+  }
+
+  .arrow-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 90px;
+    height: 90px;
+  
+    border-radius: 50%;
+    background-color: hsl(259, 100%, 65%);
+  
+    position: absolute;
+    left: 81%;
+    top: 180px;
+  
+    cursor: pointer;
+  }
+
+  .arrow-button img {
+    width: 50px;
+  }
+
+  .error {
+    color: hsl(0, 100%, 67%);
+  }
+
+  .error-input {
+  border: 2px solid hsl(0, 100%, 67%);;
+}
+
+  .age-calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 1rem;
+    padding: 0;
+    font-size: 4.5em;
+    color: hsl(0, 0%, 8%);
+  }
+
+  .age-results {
+    margin-bottom: -2rem;
+  }
+}
