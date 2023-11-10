@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import Input from "./UI/Input";
+import Input from "./Input";
 import { AgeContext } from "../store/AgeContext";
-import ArrowButton from "./UI/ArrowButton";
+import ArrowButton from "./ArrowButton";
 
 function Form() {
   const ageCtx = useContext(AgeContext);

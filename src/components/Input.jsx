@@ -1,5 +1,5 @@
 import React from "react";
-import FormError from "../FormError";
+import FormError from "./FormError";
 
 function Input({ id, value, hasError, ...props }) {
 
