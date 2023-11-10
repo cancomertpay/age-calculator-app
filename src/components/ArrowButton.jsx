@@ -9,7 +9,6 @@ import iconError from "../assets/images/icon-error.svg";
 function ArrowButton({ ...props }) {
   const { isSuccess } = useContext(AgeContext);
 
-  console.log(isSuccess);
   function handleSuccess() {
     const buttonIcon = isSuccess ? iconSuccess : iconError;
     return buttonIcon;

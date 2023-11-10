@@ -70,6 +70,7 @@ function Form() {
     ) {
       return;
     } else {
+      ageCtx.clearSucces()
       ageCtx.handleUserBirth(userBirth);
     }
   }

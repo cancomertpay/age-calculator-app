@@ -13,7 +13,8 @@ export const AgeContext = createContext({
   yearErrorHandler: (year) => {},
   clearError: () => {},
   toggleSuccess: () => {},
-  isSuccess: null
+  isSuccess: null,
+  clearSucces: () => {},
 });
 
 export default function AgeContextProvider({ children }) {
@@ -29,17 +30,21 @@ export default function AgeContextProvider({ children }) {
     year: "",
   });
   const [error, setError] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(null)
+  const [isSuccess, setIsSuccess] = useState(null);
 
   // handler functions
   function toggleSuccess() {
-    if(error === false) {
-      setIsSuccess(null)
-    } else if(error.dayError || error.monthError || error.yearError) {
-      setIsSuccess(false)
+    if (error === false) {
+      setIsSuccess(null);
+    } else if (error.dayError || error.monthError || error.yearError) {
+      setIsSuccess(false);
     } else {
-      setIsSuccess(true)
+      setIsSuccess(true);
     }
+  }
+
+  function clearSucces() {
+    setIsSuccess(null);
   }
 
   function dayErrorHandler(day) {
@@ -49,7 +54,7 @@ export default function AgeContextProvider({ children }) {
         dayError: {
           id: "day",
           isEmpty: true,
-          msg: "This field required"
+          msg: "This field required",
         },
       }));
     } else if (day <= 0 || day > 31) {
@@ -58,7 +63,7 @@ export default function AgeContextProvider({ children }) {
         dayError: {
           id: "day",
           isInvalid: true,
-          msg: "Must be a valid day"
+          msg: "Must be a valid day",
         },
       }));
     }
@@ -71,8 +76,8 @@ export default function AgeContextProvider({ children }) {
         monthError: {
           id: "month",
           isEmpty: true,
-          msg: "This field is required"
-        }
+          msg: "This field is required",
+        },
       }));
     } else if (month <= 0 || month > 12) {
       setError((prev) => ({
@@ -80,8 +85,8 @@ export default function AgeContextProvider({ children }) {
         monthError: {
           id: "month",
           isInvalid: true,
-          msg: "Must be a valid month"
-        }
+          msg: "Must be a valid month",
+        },
       }));
     }
   }
@@ -94,7 +99,7 @@ export default function AgeContextProvider({ children }) {
         yearError: {
           id: "year",
           isEmpty: true,
-          msg: "This field is required"
+          msg: "This field is required",
         },
       }));
     } else if (year < 1000) {
@@ -103,7 +108,7 @@ export default function AgeContextProvider({ children }) {
         yearError: {
           id: "year",
           isInvalid: true,
-          msg: "Must be a valid year"
+          msg: "Must be a valid year",
         },
       }));
     } else if (year > currentYear) {
@@ -112,30 +117,30 @@ export default function AgeContextProvider({ children }) {
         yearError: {
           id: "year",
           isPast: true,
-          msg: "Must be in the past"
+          msg: "Must be in the past",
         },
       }));
     }
   }
 
   function clearError(id) {
-    if(id === "day") {
-      setError(prev => ({
+    if (id === "day") {
+      setError((prev) => ({
         ...prev,
-        dayError: false
-      }))
+        dayError: false,
+      }));
     }
-    if(id === "month") {
-      setError(prev => ({
+    if (id === "month") {
+      setError((prev) => ({
         ...prev,
-        monthError: false
-      }))
+        monthError: false,
+      }));
     }
-    if(id === "year") {
-      setError(prev => ({
+    if (id === "year") {
+      setError((prev) => ({
         ...prev,
-        yearError: false
-      }))
+        yearError: false,
+      }));
     }
   }
 
@@ -183,8 +188,8 @@ export default function AgeContextProvider({ children }) {
   }, [userBirth]);
 
   useEffect(() => {
-    toggleSuccess()
-  }, [error])
+    toggleSuccess();
+  }, [error]);
 
   const contextValues = {
     userAge,
@@ -195,7 +200,8 @@ export default function AgeContextProvider({ children }) {
     yearErrorHandler,
     clearError,
     toggleSuccess,
-    isSuccess
+    isSuccess,
+    clearSucces,
   };
 
   return (
